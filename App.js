@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Alert,
+  StatusBar,
 } from 'react-native';
 import React, {useState} from 'react';
 import Tasks from './Components/Tasks';
@@ -42,6 +43,7 @@ const SimpleToDoList = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={'#F1F6F8'} barStyle="dark-content" />
       <View style={styles.taskWrapper}>
         <Text style={styles.sectionTitle}>Today's Tasks</Text>
         <ScrollView>
