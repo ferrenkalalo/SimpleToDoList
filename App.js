@@ -26,6 +26,20 @@ const SimpleToDoList = () => {
     setTaskItems(tasksCopy);
   };
 
+  const deleteTask = index => {
+    Alert.alert('Already complete the task?', 'Do you want to delete it?', [
+      {
+        text: 'CANCEL',
+        style: 'cancel',
+        onPress: () => null,
+      },
+      {
+        text: 'YES',
+        onPress: () => completeTask(index),
+      },
+    ]);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.taskWrapper}>
@@ -34,9 +48,7 @@ const SimpleToDoList = () => {
           <View>
             {taskItems.map((item, index) => {
               return (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => completeTask(index)}>
+                <TouchableOpacity key={index} onPress={() => deleteTask(index)}>
                   <Tasks text={item} />
                 </TouchableOpacity>
               );
